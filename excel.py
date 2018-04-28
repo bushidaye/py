@@ -4,16 +4,20 @@
 根据部署文档，结合ansible部署应用
 '''
 import os
+import sys
 import xlrd
 os.chdir('/home/')
 
+if len(sys.argv) < 2:
+    print 'please input the path of excel ......'
+    sys.exit(1)
 
 def read_excel():
     role_list = ['zookeeper', 'redis', 'pika', 'kafka', 'cassandra']
     zookeeper_play = r'ansible-playbook site.yaml -e "role=%s pl=%s"'
     redis_play = r'ansible-playbook site.yaml -e "role=%s pl=%s"'
 
-    excelfile = xlrd.open_workbook(r'test.xlsx')
+    excelfile = xlrd.open_workbook(sys.argv[1])
     sheet =  excelfile.sheet_by_name('python')
     row = [sheet.row_values(i) for i in range(sheet.nrows)]
 
