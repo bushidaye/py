@@ -3,6 +3,12 @@
 '''
 根据部署文档，结合ansible部署应用
 '''
+'''
+test
+'''
+'''
+test2
+'''
 import os
 import sys
 import xlrd
