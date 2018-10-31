@@ -6,9 +6,7 @@
 '''
 test
 '''
-'''
-test2
-'''
+
 import os
 import sys
 import xlrd
