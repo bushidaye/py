@@ -2,7 +2,7 @@ from time import ctime
 
 from socket import *
 
-add = ('127.0.0.1', 9888)
+add = ('192.168.20.100', 9888)
 SerSocket = socket(AF_INET, SOCK_STREAM)
 SerSocket.bind(add)
 SerSocket.listen(2)
