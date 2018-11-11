@@ -1,7 +1,8 @@
 from socket import *
 
+add = ('192.168.20.100', 9888)
 clisocket = socket(AF_INET, SOCK_STREAM)
-clisocket.connect('192.168.20.100', '9888')
+clisocket.connect(add)
 while True:
     data = raw_input('> ')
     if not data:
