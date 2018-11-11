@@ -1,20 +1,17 @@
+# coding=utf-8
+from socket import *
 from time import ctime
 
-from socket import *
-
-add = ('127.0.0.1', 9888)
-SerSocket = socket(AF_INET, SOCK_STREAM)
-SerSocket.bind(add)
-SerSocket.listen(10)
-
+addr = ('127.0.0.1', 9888)
+sersocket = socket(AF_INET, SOCK_STREAM)
+sersocket.bind(addr)
+sersocket.listen(1)
 while True:
-    print 'Server is starting listen ...'
-    tcpclisock, addr = SerSocket.accept()
-    print "connect from ", addr
-
+    print "waiting for cli connect ..."
+    tcpsocket, add = sersocket.accept()  # accept函数返回一个socket对象和一个客户端地址
+    print "the client addr is :", add
     while True:
-        data = tcpclisock.recv(1024)
+        data = tcpsocket.recv(1024)
         if not data:
             break
-        tcpclisock.send('[%s] %s' % (ctime(), data))
-    tcpclisock.close()
+        tcpsocket.send('[%s] | %s' % (ctime(), data))
