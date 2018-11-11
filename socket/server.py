@@ -2,10 +2,10 @@ from time import ctime
 
 from socket import *
 
-add = ('192.168.20.100', 9888)
+add = ('127.0.0.1', 9888)
 SerSocket = socket(AF_INET, SOCK_STREAM)
 SerSocket.bind(add)
-SerSocket.listen(2)
+SerSocket.listen(10)
 
 while True:
     print 'Server is starting listen ...'
@@ -13,9 +13,8 @@ while True:
     print "connect from ", addr
 
     while True:
-        data = tcpclisock.recv(10)
+        data = tcpclisock.recv(1024)
         if not data:
             break
         tcpclisock.send('[%s] %s' % (ctime(), data))
-        tcpclisock.close()
-SerSocket.close()
+    tcpclisock.close()

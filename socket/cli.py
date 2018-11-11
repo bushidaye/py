@@ -1,6 +1,6 @@
 from socket import *
 
-add = ('192.168.20.100', 9888)
+add = ('127.0.0.1', 9888)
 clisocket = socket(AF_INET, SOCK_STREAM)
 clisocket.connect(add)
 while True:
@@ -8,7 +8,7 @@ while True:
     if not data:
         break
     clisocket.send(data)
-    data = clisocket.recv(10)
+    data = clisocket.recv(1024)
     if not data:
         break
     print data
