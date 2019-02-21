@@ -6,7 +6,7 @@
 with open('im') as im,open('zx') as zx:
     fim=im.readlines()
     fzx=zx.readlines()
-    im.close()
+    im.close() #可省略，with open模式会自动关闭
     zx.close()
     
     for i in fim:
