@@ -13,3 +13,8 @@ with open('im') as im,open('zx') as zx:
         for j in fzx:
             if i.find(j.split()[0])==0:
                 print i
+
+#以下写法是错误的，因为在第一次循环时j.readlines()已经关闭，后面的循环已经读不到值了				
+#for i in i.readlines():
+#	if i in j.readlines():
+#		print i
